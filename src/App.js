@@ -104,7 +104,7 @@ function App() {
         </main>
         <footer>
           <a
-            href="https://github.com/AnaisPirson/SheCode_Weather-App-Project_Redone"
+            href="https://github.com/AnaisPirson/shecode-weather-react-app"
             target="_blank"
             rel="noreferrer"
           >
