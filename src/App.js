@@ -4,7 +4,7 @@ import Header from "./Header.js";
 import Details from "./Details.js";
 import ForecastInformation from "./ForecastInformation.js";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
       <div className="container">
@@ -116,5 +116,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
