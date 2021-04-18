@@ -1,10 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./Header.css";
 
+import axios from "axios";
+
 export default function Header() {
-  return (
-    <form>
+  let [cityUser, getCityUser] = useState(null);
+  let [city, sendCity] = useState(null);
+  // let apiKey = "d4c486d391c1e53132be6cfbb096c3a8";
+  // let units = "metric";
+  // let iconUrl = "http://openweathermap.org/img/wn/";
+  // let [temperature, setTemperature] = useState(null);
+  // let [description, setDescription] = useState(null);
+  // let [humidity, setHumidity] = useState(null);
+  // let [wind, setWind] = useState(null);
+  // let [icon, setIcon] = useState(null);
+  // let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityUser}&appid=${apiKey}&units=${units}`;
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    sendCity(cityUser);
+    console.log(cityUser);
+    this.props.onGetCity("london");
+    // axios.get(apiUrl).then(showTemperature);
+  }
+  function getCity(event) {
+    getCityUser(event.target.value);
+  }
+
+  // function showTemperature(response) {
+  //   setTemperature(response.data.main.temp);
+  //   setDescription(response.data.weather[0].description);
+  //   setHumidity(response.data.main.humidity);
+  //   setWind(response.data.wind.speed);
+  //   setIcon(response.data.weather[0].icon);
+  //   console.log(response.data);
+  // }
+
+  let formInfo = (
+    <form onSubmit={handleSubmit}>
       <div className="row">
         <div className="col-7">
           <div className="input-group searchBarGroup ms-2">
@@ -33,6 +67,7 @@ export default function Header() {
               id="searchBar"
               placeholder="Enter a city"
               autoComplete="off"
+              onChange={getCity}
             />
 
             <button
@@ -75,4 +110,6 @@ export default function Header() {
       </div>
     </form>
   );
+
+  return formInfo;
 }

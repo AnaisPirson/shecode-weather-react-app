@@ -11,7 +11,7 @@ export default function App() {
         <header className="App-header">
           <div className="card card-body top-card">
             <h1 className="title">RainCheck</h1>
-            <Header />
+            <Header onGetCity={this.city} />
           </div>
         </header>
 
